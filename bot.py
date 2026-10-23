@@ -13,7 +13,6 @@ EXTENSIONS = [
     "cogs.general"
               ]
 
-
 class MagPy(commands.Bot):
     def __init__(self) -> None:
         super().__init__(command_prefix="!",
@@ -99,10 +98,9 @@ def main():
     token = os.getenv("DISCORD_TOKEN")
 
     if not token:
-        raise RuntimeError("DISCORD_TOKEN is not configured")
+        raise RuntimeError("DISCORD_TOKEN is not configured in .env")
 
     bot.run(token)
-
 
 if __name__ == "__main__":
     main()
