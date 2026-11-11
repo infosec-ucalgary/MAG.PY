@@ -10,9 +10,9 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 EXTENSIONS = [
-    "cogs.general"
+    "cogs.general",
+    "cogs.qr_code",
               ]
-
 
 class MagPy(commands.Bot):
     def __init__(self) -> None:
@@ -99,10 +99,9 @@ def main():
     token = os.getenv("DISCORD_TOKEN")
 
     if not token:
-        raise RuntimeError("DISCORD_TOKEN is not configured")
+        raise RuntimeError("DISCORD_TOKEN is not configured in .env")
 
     bot.run(token)
-
 
 if __name__ == "__main__":
     main()
