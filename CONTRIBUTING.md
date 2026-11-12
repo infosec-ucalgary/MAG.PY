@@ -10,7 +10,7 @@ Thanks for helping improve MAG.PY! This guide covers how to set up the project a
 
 ## Making Changes
 
-1. Create a branch from `main`:
+1. Create a branch from `master`:
    ```bash
    git checkout -b feature/short-description
    ```
