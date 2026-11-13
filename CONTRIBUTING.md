@@ -1,58 +1,25 @@
 # Contributing to MAG.PY
 
-Thanks for helping improve MAG.PY! This guide covers how to set up the project and submit changes.
+## Who can help?
+Start here. Ask Charles or a bot exec on Discord for setup, bot tokens, or if you're stuck:
+- @cq0776 (Charles)
+- @silverdefault. (Gary)
+- @conc4veh3ad (Zakery)
+- @dimpl3 (Weikai)
+- @hawllowed (Jade)
 
-## Getting Started
+## Where do I start?
+1. Pick a small item from the Planned list in the [README](README.md). Or if you have a new idea, bring it to Charles
+2. Post what you're working on in the discord-bot-dev channel in UCSEC Planning.
+3. Create a branch (or fork the repo), then open a pull request and wait for a review before merging.
 
-1. Fork the repo and clone your fork
-2. Follow the setup steps in the [README](README.md#getting-started)
-3. Create a separate Discord application and bot token for testing, and invite it to a private test server
-
-## Making Changes
-
-1. Create a branch from `master`:
-   ```bash
-   git checkout -b feature/short-description
-   ```
-2. Make your changes and test them in your test server
-3. Commit with a clear message describing what changed and why
-4. Push your branch and open a pull request
+## What's a cog?
+A cog is a Python file that adds commands to the bot, and groups related commands together. When the bot starts, it loads every cog listed in `EXTENSIONS` in `bot.py` and runs its code.
 
 ## Adding a New Command
 
 Each feature lives in its own cog:
 
-1. Create a file in `cogs/` (e.g. `cogs/my_feature.py`)
-2. Define a `commands.Cog` class with your slash commands
-3. Add an async `setup(bot)` function at the bottom:
-   ```python
-   async def setup(bot: commands.Bot) -> None:
-       await bot.add_cog(MyFeature(bot))
-   ```
-4. Register it in `EXTENSIONS` in `main.py`:
-   ```python
-   EXTENSIONS = [
-       "cogs.general",
-       "cogs.qr_code",
-       "cogs.my_feature",
-   ]
-   ```
-
-## Code Style
-
-- Follow PEP 8
-- Use type hints on function signatures
-- Keep each cog focused on one feature area
-
-## Pull Request Checklist
-
-- [ ] The bot starts without extension load errors
-- [ ] New commands have a clear `description` and `app_commands.describe` text
-- [ ] The README is updated if you added a user-facing feature
-
-## Good First Contributions
-
-- Automatic CVE feed: the bot periodically checks for newly published CVEs (vulnerability reports) and posts them to a dedicated channel
-- Automatically prefix `https://` when a URL has no scheme
-- Add QR code style selection
-- Add new general-purpose commands to the `general` cog
+To add a command:
+1. Create `my_feature.py` in the `cogs` folder. Copy `qr_code.py` as a template.
+2. Add `"cogs.my_feature"` to `EXTENSIONS` in `bot.py`.
