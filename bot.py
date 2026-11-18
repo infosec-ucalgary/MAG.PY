@@ -12,6 +12,7 @@ logger = logging.getLogger(__name__)
 EXTENSIONS = [
     "cogs.general",
     "cogs.qr_code",
+    "cogs.musician"
               ]
 
 class MagPy(commands.Bot):
